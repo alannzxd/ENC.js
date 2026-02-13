@@ -1,11 +1,5 @@
 {
   "version": 2,
-  "functions": {
-    "api/encrypt.js": {
-      "maxDuration": 10,
-      "runtime": "nodejs20.x"
-    }
-  },
   "builds": [
     {
       "src": "api/**/*.js",
