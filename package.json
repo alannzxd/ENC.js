@@ -1,0 +1,12 @@
+{
+  "name": "holow-encryptor",
+  "version": "1.0.0",
+  "description": "Holow JavaScript Obfuscator",
+  "main": "api/encrypt.js",
+  "scripts": {
+    "vercel-build": "echo 'No build required'"
+  },
+  "dependencies": {
+    "js-confuser": "^1.6.0"
+  }
+}
