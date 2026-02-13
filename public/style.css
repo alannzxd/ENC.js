@@ -1,0 +1,332 @@
+:root {
+    --bg-dark: #0a0a0f;
+    --neon-purple: #b300ff;
+    --neon-pink: #ff00c1;
+    --neon-blue: #00f7ff;
+    --glass-bg: rgba(20, 0, 40, 0.7);
+    --terminal-bg: #0c0c1a;
+    --glow: 0 0 10px rgba(179, 0, 255, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Mono', monospace;
+}
+
+body {
+    background: radial-gradient(circle at 50% 50%, #1a0033, #000000);
+    color: #e0e0ff;
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(255,0,255,0.02) 2px, transparent 4px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* GLASS MORPHISM */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(179, 0, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(179, 0, 255, 0.2);
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+/* NEON HEADER */
+.neon-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.neon-header h1 {
+    font-size: 3rem;
+    text-shadow: 0 0 20px #b300ff, 0 0 40px #ff00c1;
+    color: white;
+    letter-spacing: 5px;
+}
+
+.glitch {
+    font-size: 1.2rem;
+    color: #00f7ff;
+    text-shadow: 0 0 5px #00f7ff;
+    position: relative;
+}
+
+/* SECTION TITLES */
+.section-title {
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--neon-purple);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* CODE INPUT */
+.code-section textarea {
+    width: 100%;
+    height: 200px;
+    background: #0f0f1f;
+    border: 1px solid #b300ff;
+    color: #d0b0ff;
+    padding: 15px;
+    font-size: 0.9rem;
+    resize: vertical;
+    outline: none;
+    box-shadow: inset 0 0 10px rgba(179,0,255,0.3);
+    border-radius: 8px;
+}
+
+.file-upload {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* BUTTONS */
+.neon-btn {
+    background: transparent;
+    border: 2px solid var(--neon-purple);
+    color: white;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(179,0,255,0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.neon-btn:hover {
+    background: var(--neon-purple);
+    color: black;
+    box-shadow: 0 0 30px #b300ff;
+    border-color: white;
+}
+
+.neon-btn.small {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px #b300ff; }
+    50% { box-shadow: 0 0 30px #ff00c1; }
+    100% { box-shadow: 0 0 10px #b300ff; }
+}
+
+/* PARAMETER CONTROLS */
+.param-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.param-item {
+    flex: 1 1 200px;
+}
+
+.param-item label {
+    display: block;
+    font-size: 0.8rem;
+    color: #bfa0ff;
+    margin-bottom: 5px;
+}
+
+.param-item input {
+    width: 100%;
+    background: #1a0a2a;
+    border: 1px solid #b300ff;
+    padding: 10px;
+    color: white;
+    border-radius: 6px;
+}
+
+/* MODE GRID */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.mode-btn {
+    background: rgba(0,0,0,0.6);
+    border: 1px solid #7a2c9e;
+    color: #d4b0ff;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mode-btn i {
+    color: #ff66ff;
+    text-shadow: 0 0 5px #ff00c1;
+}
+
+.mode-btn:hover {
+    background: #4a1c6e;
+    border-color: #ff00c1;
+    box-shadow: 0 0 15px #b300ff;
+    color: white;
+}
+
+.mode-btn.active {
+    background: #b300ff;
+    color: black;
+    border-color: white;
+    box-shadow: 0 0 20px #ff00c1;
+}
+
+.mode-btn.active i {
+    color: black;
+}
+
+/* TERMINAL */
+.terminal {
+    background: var(--terminal-bg);
+    border: 1px solid #00f7ff;
+    box-shadow: 0 0 15px rgba(0,247,255,0.3);
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    color: #00f7ff;
+    border-bottom: 1px solid #00f7ff;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+.terminal-body {
+    background: #050510;
+    color: #a0f0ff;
+    padding: 15px;
+    font-family: monospace;
+    height: 120px;
+    overflow-y: auto;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* RESULT */
+.result-section {
+    margin-top: 20px;
+}
+
+.code-preview {
+    background: #0f0f1f;
+    padding: 20px;
+    border-left: 4px solid #b300ff;
+    max-height: 300px;
+    overflow: auto;
+    font-size: 0.8rem;
+    color: #e0b0ff;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.result-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: #b300ff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.icon-btn:hover {
+    color: #ff00c1;
+    text-shadow: 0 0 10px #ff00c1;
+}
+
+/* FOOTER */
+.neon-footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid #b300ff;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #bfa0ff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.footer-links a:hover {
+    color: #ff00c1;
+    text-shadow: 0 0 8px #ff00c1;
+}
+
+.watermark {
+    color: #6a4e7a;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .neon-header h1 { font-size: 2rem; }
+    .button-grid { grid-template-columns: repeat(2, 1fr); }
+}
