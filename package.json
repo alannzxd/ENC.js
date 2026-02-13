@@ -4,5 +4,6 @@
   "description": "Holow JavaScript Obfuscator",
   "dependencies": {
     "js-confuser": "^1.6.0"
-  }
+  },
+  "type": "module"
 }
