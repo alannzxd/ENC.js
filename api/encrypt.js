@@ -1,5 +1,5 @@
-const JsConfuser = require('js-confuser');
-const crypto = require('crypto');
+import JsConfuser from 'js-confuser';
+import crypto from 'crypto';
 
 // --- Time-Locked Encryption ---
 const obfuscateTimeLocked = async (fileContent, days) => {
@@ -109,13 +109,28 @@ const getSiuCalcrickObfuscationConfig = () => {
         return `AlannXD和Holow无与伦比的帅气${randomPart}`;
     };
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateSiuCalcrickName,
-        stringCompression: true, stringEncoding: true, stringSplitting: true,
-        controlFlowFlattening: 0.95, shuffle: true, rgf: false, flatten: true,
-        duplicateLiteralsRemoval: true, deadCode: true, calculator: true,
+        stringCompression: true, 
+        stringEncoding: true, 
+        stringSplitting: true,
+        controlFlowFlattening: 0.95, 
+        shuffle: true, 
+        rgf: false, 
+        flatten: true,
+        duplicateLiteralsRemoval: true, 
+        deadCode: true, 
+        calculator: true,
         opaquePredicates: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
@@ -127,13 +142,31 @@ const getNebulaObfuscationConfig = () => {
         return `NX${randomPart}`;
     };
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateNebulaName,
-        stringCompression: true, stringConcealing: false, stringEncoding: true, stringSplitting: false,
-        controlFlowFlattening: 0.75, flatten: true, shuffle: true, rgf: true,
-        deadCode: true, opaquePredicates: true, dispatcher: true,
-        globalConcealing: true, objectExtraction: true, duplicateLiteralsRemoval: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringCompression: true, 
+        stringConcealing: false, 
+        stringEncoding: true, 
+        stringSplitting: false,
+        controlFlowFlattening: 0.75, 
+        flatten: true, 
+        shuffle: true, 
+        rgf: true,
+        deadCode: true, 
+        opaquePredicates: true, 
+        dispatcher: true,
+        globalConcealing: true, 
+        objectExtraction: true, 
+        duplicateLiteralsRemoval: true,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
@@ -141,31 +174,70 @@ const getNovaObfuscationConfig = () => {
     const generateNovaName = () => {
         const prefixes = ["nZ", "nova", "nx"];
         const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
-        const hash = crypto.createHash('sha256').update(crypto.randomBytes(8)).digest('hex').slice(0, 6);
+        const hash = crypto.createHash('sha256')
+            .update(crypto.randomBytes(8))
+            .digest('hex')
+            .slice(0, 6);
         const suffix = Math.random().toString(36).slice(2, 5);
         return `${randomPrefix}_${hash}_${suffix}`;
     };
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateNovaName,
-        stringCompression: true, stringConcealing: true, stringEncoding: true, stringSplitting: false,
-        controlFlowFlattening: 0.5, flatten: true, shuffle: true, rgf: false,
-        deadCode: false, opaquePredicates: true, dispatcher: true,
-        globalConcealing: true, objectExtraction: true, duplicateLiteralsRemoval: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringCompression: true, 
+        stringConcealing: true, 
+        stringEncoding: true, 
+        stringSplitting: false,
+        controlFlowFlattening: 0.5, 
+        flatten: true, 
+        shuffle: true, 
+        rgf: false,
+        deadCode: false, 
+        opaquePredicates: true, 
+        dispatcher: true,
+        globalConcealing: true, 
+        objectExtraction: true, 
+        duplicateLiteralsRemoval: true,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
 const getXObfuscationConfig = () => {
     const generateXName = () => "xZ" + crypto.randomUUID().slice(0, 4);
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateXName,
-        stringCompression: true, stringConcealing: true, stringEncoding: true, stringSplitting: false,
-        controlFlowFlattening: 0.5, flatten: true, shuffle: true, rgf: true,
-        deadCode: false, opaquePredicates: true, dispatcher: true,
-        globalConcealing: true, objectExtraction: true, duplicateLiteralsRemoval: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringCompression: true, 
+        stringConcealing: true, 
+        stringEncoding: true, 
+        stringSplitting: false,
+        controlFlowFlattening: 0.5, 
+        flatten: true, 
+        shuffle: true, 
+        rgf: true,
+        deadCode: false, 
+        opaquePredicates: true, 
+        dispatcher: true,
+        globalConcealing: true, 
+        objectExtraction: true, 
+        duplicateLiteralsRemoval: true,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
@@ -173,18 +245,38 @@ const getMaxObfuscationConfig = (intensity) => {
     const generateMaxName = () => {
         const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let name = "mX";
-        for (let i = 0; i < Math.floor(Math.random() * 4) + 4; i++) name += chars[Math.floor(Math.random() * chars.length)];
+        for (let i = 0; i < Math.floor(Math.random() * 4) + 4; i++) 
+            name += chars[Math.floor(Math.random() * chars.length)];
         return name;
     };
     const flatteningLevel = intensity / 10;
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateMaxName,
-        stringCompression: true, stringConcealing: true, stringEncoding: true, stringSplitting: true,
-        controlFlowFlattening: flatteningLevel, flatten: true, shuffle: true,
-        rgf: true, calculator: true, deadCode: true, opaquePredicates: true,
-        dispatcher: true, globalConcealing: true, objectExtraction: true, duplicateLiteralsRemoval: false,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringCompression: true, 
+        stringConcealing: true, 
+        stringEncoding: true, 
+        stringSplitting: true,
+        controlFlowFlattening: flatteningLevel, 
+        flatten: true, 
+        shuffle: true,
+        rgf: true, 
+        calculator: true, 
+        deadCode: true, 
+        opaquePredicates: true,
+        dispatcher: true, 
+        globalConcealing: true, 
+        objectExtraction: true, 
+        duplicateLiteralsRemoval: false,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
@@ -192,16 +284,29 @@ const getBigObfuscationConfig = () => {
     const generateBigName = () => {
         const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let name = "";
-        for (let i = 0; i < Math.floor(Math.random() * 5) + 5; i++) name += chars[Math.floor(Math.random() * chars.length)];
+        for (let i = 0; i < Math.floor(Math.random() * 5) + 5; i++) 
+            name += chars[Math.floor(Math.random() * chars.length)];
         return name;
     };
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateBigName,
-        stringEncoding: true, stringSplitting: true,
-        controlFlowFlattening: 0.75, shuffle: true, duplicateLiteralsRemoval: true,
-        deadCode: true, opaquePredicates: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringEncoding: true, 
+        stringSplitting: true,
+        controlFlowFlattening: 0.75, 
+        shuffle: true, 
+        duplicateLiteralsRemoval: true,
+        deadCode: true, 
+        opaquePredicates: true,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
@@ -212,12 +317,25 @@ const getInvisObfuscationConfig = () => {
         return name + Math.random().toString(36).substring(2, 5);
     };
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateInvisName,
-        stringEncoding: true, stringSplitting: true,
-        controlFlowFlattening: 0.95, shuffle: true, duplicateLiteralsRemoval: true,
-        deadCode: true, calculator: true, opaquePredicates: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringEncoding: true, 
+        stringSplitting: true,
+        controlFlowFlattening: 0.95, 
+        shuffle: true, 
+        duplicateLiteralsRemoval: true,
+        deadCode: true, 
+        calculator: true, 
+        opaquePredicates: true,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
@@ -225,140 +343,315 @@ const getStealthObfuscationConfig = () => {
     const generateStealthName = () => {
         const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let name = "";
-        for (let i = 0; i < Math.floor(Math.random() * 3) + 1; i++) name += chars[Math.floor(Math.random() * chars.length)];
+        for (let i = 0; i < Math.floor(Math.random() * 3) + 1; i++) 
+            name += chars[Math.floor(Math.random() * chars.length)];
         return name;
     };
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateStealthName,
-        stringEncoding: true, stringSplitting: true,
-        controlFlowFlattening: 0.75, shuffle: true, duplicateLiteralsRemoval: true,
-        deadCode: true, opaquePredicates: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringEncoding: true, 
+        stringSplitting: true,
+        controlFlowFlattening: 0.75, 
+        shuffle: true, 
+        duplicateLiteralsRemoval: true,
+        deadCode: true, 
+        opaquePredicates: true,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
 const getStrongObfuscationConfig = () => ({
-    target: "node", compact: true, renameVariables: true, renameGlobals: true,
+    target: "node", 
+    compact: true, 
+    renameVariables: true, 
+    renameGlobals: true,
     identifierGenerator: "randomized",
-    stringEncoding: true, stringSplitting: true,
-    controlFlowFlattening: 0.75, duplicateLiteralsRemoval: true,
-    calculator: true, dispatcher: true, deadCode: true, opaquePredicates: true,
-    lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+    stringEncoding: true, 
+    stringSplitting: true,
+    controlFlowFlattening: 0.75, 
+    duplicateLiteralsRemoval: true,
+    calculator: true, 
+    dispatcher: true, 
+    deadCode: true, 
+    opaquePredicates: true,
+    lock: { 
+        selfDefending: true, 
+        antiDebug: true, 
+        integrity: true, 
+        tamperProtection: true 
+    }
 });
 
 const getUltraObfuscationConfig = () => {
     const generateUltraName = () => {
         const chars = "abcdefghijklmnopqrstuvwxyz";
         const numbers = "0123456789";
-        return `z${numbers[Math.floor(Math.random() * numbers.length)]}${chars[Math.floor(Math.random() * chars.length)]}${Math.random().toString(36).substring(2, 6)}`;
+        return `z${numbers[Math.floor(Math.random() * numbers.length)]}${
+            chars[Math.floor(Math.random() * chars.length)]
+        }${Math.random().toString(36).substring(2, 6)}`;
     };
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateUltraName,
-        stringCompression: true, stringEncoding: true, stringSplitting: true,
-        controlFlowFlattening: 0.9, flatten: true, shuffle: true, rgf: true,
-        deadCode: true, opaquePredicates: true, dispatcher: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringCompression: true, 
+        stringEncoding: true, 
+        stringSplitting: true,
+        controlFlowFlattening: 0.9, 
+        flatten: true, 
+        shuffle: true, 
+        rgf: true,
+        deadCode: true, 
+        opaquePredicates: true, 
+        dispatcher: true,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
 const getJapanObfuscationConfig = () => {
-    const japaneseChars = ["あ","い","う","え","お","か","き","く","け","こ","さ","し","す","せ","そ","た","ち","つ","て","と","な","に","ぬ","ね","の","は","ひ","ふ","へ","ほ","ま","み","む","め","も","や","ゆ","よ","ら","り","る","れ","ろ","わ","を","ん"];
+    const japaneseChars = [
+        "あ","い","う","え","お","か","き","く","け","こ",
+        "さ","し","す","せ","そ","た","ち","つ","て","と",
+        "な","に","ぬ","ね","の","は","ひ","ふ","へ","ほ",
+        "ま","み","む","め","も","や","ゆ","よ",
+        "ら","り","る","れ","ろ","わ","を","ん"
+    ];
     const generateJapaneseName = () => {
         let name = "";
-        for (let i = 0; i < Math.floor(Math.random() * 4) + 3; i++) name += japaneseChars[Math.floor(Math.random() * japaneseChars.length)];
+        for (let i = 0; i < Math.floor(Math.random() * 4) + 3; i++) 
+            name += japaneseChars[Math.floor(Math.random() * japaneseChars.length)];
         return name;
     };
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateJapaneseName,
-        stringEncoding: true, stringSplitting: true,
-        controlFlowFlattening: 0.9, flatten: true, shuffle: true,
-        duplicateLiteralsRemoval: true, deadCode: true, calculator: true, opaquePredicates: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringEncoding: true, 
+        stringSplitting: true,
+        controlFlowFlattening: 0.9, 
+        flatten: true, 
+        shuffle: true,
+        duplicateLiteralsRemoval: true, 
+        deadCode: true, 
+        calculator: true, 
+        opaquePredicates: true,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
 const getJapanxArabObfuscationConfig = () => {
-    const japaneseXArabChars = ["あ","い","う","え","お","か","き","く","け","こ","さ","し","す","せ","そ","た","ち","つ","て","と","な","に","ぬ","ね","の","は","ひ","ふ","へ","ほ","ま","み","む","め","も","や","ゆ","よ","أ","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","ه","و","ي","ら","り","る","れ","ろ","わ","を","ん"];
+    const japaneseXArabChars = [
+        "あ","い","う","え","お","か","き","く","け","こ",
+        "さ","し","す","せ","そ","た","ち","つ","て","と",
+        "な","に","ぬ","ね","の","は","ひ","ふ","へ","ほ",
+        "ま","み","む","め","も","や","ゆ","よ",
+        "أ","ب","ت","ث","ج","ح","خ","د","ذ","ر",
+        "ز","س","ش","ص","ض","ط","ظ","ع","غ","ف",
+        "ق","ك","ل","م","ن","ه","و","ي",
+        "ら","り","る","れ","ろ","わ","を","ん"
+    ];
     const generateJapaneseXArabName = () => {
         let name = "";
-        for (let i = 0; i < Math.floor(Math.random() * 4) + 3; i++) name += japaneseXArabChars[Math.floor(Math.random() * japaneseXArabChars.length)];
+        for (let i = 0; i < Math.floor(Math.random() * 4) + 3; i++) 
+            name += japaneseXArabChars[Math.floor(Math.random() * japaneseXArabChars.length)];
         return name;
     };
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateJapaneseXArabName,
-        stringCompression: true, stringConcealing: true, stringEncoding: true, stringSplitting: true,
-        controlFlowFlattening: 0.95, flatten: true, shuffle: true, rgf: false,
-        dispatcher: true, duplicateLiteralsRemoval: true, deadCode: true,
-        calculator: true, opaquePredicates: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringCompression: true, 
+        stringConcealing: true, 
+        stringEncoding: true, 
+        stringSplitting: true,
+        controlFlowFlattening: 0.95, 
+        flatten: true, 
+        shuffle: true, 
+        rgf: false,
+        dispatcher: true, 
+        duplicateLiteralsRemoval: true, 
+        deadCode: true,
+        calculator: true, 
+        opaquePredicates: true,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
 const getMandarinObfuscationConfig = () => {
-    const mandarinChars = ["龙","虎","风","云","山","河","天","地","雷","电","火","水","木","金","土","星","月","日","光","影","峰","泉","林","海","雪","霜","雾","冰","焰","石"];
+    const mandarinChars = [
+        "龙","虎","风","云","山","河","天","地","雷","电",
+        "火","水","木","金","土","星","月","日","光","影",
+        "峰","泉","林","海","雪","霜","雾","冰","焰","石"
+    ];
     const generateMandarinName = () => {
         let name = "";
-        for (let i = 0; i < Math.floor(Math.random() * 4) + 3; i++) name += mandarinChars[Math.floor(Math.random() * mandarinChars.length)];
+        for (let i = 0; i < Math.floor(Math.random() * 4) + 3; i++) 
+            name += mandarinChars[Math.floor(Math.random() * mandarinChars.length)];
         return name;
     };
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateMandarinName,
-        stringEncoding: true, stringSplitting: true,
-        controlFlowFlattening: 0.95, shuffle: true, duplicateLiteralsRemoval: true,
-        deadCode: true, calculator: true, opaquePredicates: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringEncoding: true, 
+        stringSplitting: true,
+        controlFlowFlattening: 0.95, 
+        shuffle: true, 
+        duplicateLiteralsRemoval: true,
+        deadCode: true, 
+        calculator: true, 
+        opaquePredicates: true,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
 const getArabObfuscationConfig = () => {
-    const arabicChars = ["أ","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","ه","و","ي"];
+    const arabicChars = [
+        "أ","ب","ت","ث","ج","ح","خ","د","ذ","ر",
+        "ز","س","ش","ص","ض","ط","ظ","ع","غ","ف",
+        "ق","ك","ل","م","ن","ه","و","ي"
+    ];
     const generateArabicName = () => {
         let name = "";
-        for (let i = 0; i < Math.floor(Math.random() * 4) + 3; i++) name += arabicChars[Math.floor(Math.random() * arabicChars.length)];
+        for (let i = 0; i < Math.floor(Math.random() * 4) + 3; i++) 
+            name += arabicChars[Math.floor(Math.random() * arabicChars.length)];
         return name;
     };
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateArabicName,
-        stringEncoding: true, stringSplitting: true,
-        controlFlowFlattening: 0.95, shuffle: true, duplicateLiteralsRemoval: true,
-        deadCode: true, calculator: true, opaquePredicates: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringEncoding: true, 
+        stringSplitting: true,
+        controlFlowFlattening: 0.95, 
+        shuffle: true, 
+        duplicateLiteralsRemoval: true,
+        deadCode: true, 
+        calculator: true, 
+        opaquePredicates: true,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
 const getNewObfuscationConfig = () => ({
-    target: "node", compact: true, renameVariables: true, renameGlobals: true,
+    target: "node", 
+    compact: true, 
+    renameVariables: true, 
+    renameGlobals: true,
     identifierGenerator: "mangled",
-    stringEncoding: true, stringSplitting: true,
-    controlFlowFlattening: 0.95, shuffle: true, duplicateLiteralsRemoval: true,
-    deadCode: true, calculator: true, opaquePredicates: true,
-    lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+    stringEncoding: true, 
+    stringSplitting: true,
+    controlFlowFlattening: 0.95, 
+    shuffle: true, 
+    duplicateLiteralsRemoval: true,
+    deadCode: true, 
+    calculator: true, 
+    opaquePredicates: true,
+    lock: { 
+        selfDefending: true, 
+        antiDebug: true, 
+        integrity: true, 
+        tamperProtection: true 
+    }
 });
 
 const getCustomObfuscationConfig = (customName) => {
     const generateCustomName = () => {
         const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         let suffix = "";
-        for (let i = 0; i < Math.floor(Math.random() * 3) + 2; i++) suffix += chars[Math.floor(Math.random() * chars.length)];
+        for (let i = 0; i < Math.floor(Math.random() * 3) + 2; i++) 
+            suffix += chars[Math.floor(Math.random() * chars.length)];
         return `${customName}_${suffix}`;
     };
     return {
-        target: "node", compact: true, renameVariables: true, renameGlobals: true,
+        target: "node", 
+        compact: true, 
+        renameVariables: true, 
+        renameGlobals: true,
         identifierGenerator: generateCustomName,
-        stringEncoding: true, stringSplitting: true,
-        controlFlowFlattening: 0.75, shuffle: true, duplicateLiteralsRemoval: true,
-        deadCode: true, opaquePredicates: true,
-        lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
+        stringEncoding: true, 
+        stringSplitting: true,
+        controlFlowFlattening: 0.75, 
+        shuffle: true, 
+        duplicateLiteralsRemoval: true,
+        deadCode: true, 
+        opaquePredicates: true,
+        lock: { 
+            selfDefending: true, 
+            antiDebug: true, 
+            integrity: true, 
+            tamperProtection: true 
+        }
     };
 };
 
-// Invisible encode/decode helpers
+const getObfuscationConfig = (level = "high") => ({
+    target: "node",
+    compact: true,
+    renameVariables: true,
+    renameGlobals: true,
+    identifierGenerator: "mangled",
+    stringEncoding: true,
+    stringSplitting: true,
+    controlFlowFlattening: level === "high" ? 0.95 : level === "medium" ? 0.75 : 0.5,
+    shuffle: true,
+    duplicateLiteralsRemoval: true,
+    deadCode: true,
+    calculator: true,
+    opaquePredicates: true,
+    lock: {
+        selfDefending: true,
+        antiDebug: true,
+        integrity: true,
+        tamperProtection: true
+    }
+});
+
+// --- Invisible encode helper ---
 function encodeInvisible(text) {
     try {
         const compressedText = text.replace(/\s+/g, ' ').trim();
@@ -369,70 +662,74 @@ function encodeInvisible(text) {
     }
 }
 
-// ============= SERVERLESS HANDLER =============
-module.exports = async (req, res) => {
-    // Enable CORS for frontend
+// ============= MAIN HANDLER =============
+export default async function handler(req, res) {
+    // Enable CORS
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
+    // Handle preflight
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
 
+    // Only allow POST
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const { code, mode, days, intensity, size, customName } = req.body;
-
-    if (!code) {
-        return res.status(400).json({ error: 'No code provided' });
-    }
-
     try {
+        const { 
+            code, 
+            mode, 
+            days = 7, 
+            intensity = 7, 
+            size = 5, 
+            customName = 'AlannXD',
+            level = 'high'
+        } = req.body;
+
+        // Validate input
+        if (!code) {
+            return res.status(400).json({ error: 'No code provided' });
+        }
+
+        if (typeof code !== 'string') {
+            return res.status(400).json({ error: 'Code must be a string' });
+        }
+
         let obfuscatedCode = '';
 
+        // ============ ENCRYPTION MODE SWITCH ============
         switch (mode) {
+            // --- MAIN COMMANDS ---
             case 'enc':
-                const level = 'high'; // default high
-                const config = {
-                    target: "node", compact: true, renameVariables: true, renameGlobals: true,
-                    identifierGenerator: "mangled", stringEncoding: true, stringSplitting: true,
-                    controlFlowFlattening: 0.95, shuffle: true, duplicateLiteralsRemoval: true,
-                    deadCode: true, calculator: true, opaquePredicates: true,
-                    lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
-                };
-                const obf = await JsConfuser.obfuscate(code, config);
-                obfuscatedCode = obf.code || obf;
+                const encResult = await JsConfuser.obfuscate(code, getObfuscationConfig(level));
+                obfuscatedCode = encResult.code || encResult;
                 break;
+
             case 'enceval':
-                const evalConfig = {
-                    target: "node", compact: true, renameVariables: true, renameGlobals: true,
-                    identifierGenerator: "mangled", stringEncoding: true, stringSplitting: true,
-                    controlFlowFlattening: 0.95, shuffle: true, duplicateLiteralsRemoval: true,
-                    deadCode: true, calculator: true, opaquePredicates: true,
-                    lock: { selfDefending: true, antiDebug: true, integrity: true, tamperProtection: true }
-                };
-                const ev = await JsConfuser.obfuscate(code, evalConfig);
-                obfuscatedCode = ev.code || ev;
+                const evalResult = await JsConfuser.obfuscate(code, getObfuscationConfig(level));
+                obfuscatedCode = evalResult.code || evalResult;
                 break;
+
             case 'customenc':
-                const custConf = getCustomObfuscationConfig(customName || 'AlannXD');
-                const cust = await JsConfuser.obfuscate(code, custConf);
-                obfuscatedCode = cust.code || cust;
+                const customResult = await JsConfuser.obfuscate(code, getCustomObfuscationConfig(customName));
+                obfuscatedCode = customResult.code || customResult;
                 break;
+
             case 'encmax':
-                const maxConf = getMaxObfuscationConfig(intensity || 7);
-                const max = await JsConfuser.obfuscate(code, maxConf);
-                obfuscatedCode = max.code || max;
+                const maxResult = await JsConfuser.obfuscate(code, getMaxObfuscationConfig(intensity));
+                obfuscatedCode = maxResult.code || maxResult;
                 break;
+
             case 'encbig':
-                const bigConf = getBigObfuscationConfig();
-                const big = await JsConfuser.obfuscate(code, bigConf);
-                let bigCode = big.code || big;
-                const targetSizeBytes = (size || 5) * 1024 * 1024;
+                const bigResult = await JsConfuser.obfuscate(code, getBigObfuscationConfig());
+                let bigCode = bigResult.code || bigResult;
+                const targetSizeBytes = (parseInt(size) || 5) * 1024 * 1024;
                 const currentSizeBytes = Buffer.byteLength(bigCode, 'utf8');
+                
                 if (currentSizeBytes < targetSizeBytes) {
                     const paddingSize = targetSizeBytes - currentSizeBytes;
                     const padding = crypto.randomBytes(paddingSize).toString('base64');
@@ -440,43 +737,52 @@ module.exports = async (req, res) => {
                 }
                 obfuscatedCode = bigCode;
                 break;
+
+            // --- STYLE PACKS ---
             case 'encchina':
-                const china = await JsConfuser.obfuscate(code, getMandarinObfuscationConfig());
-                obfuscatedCode = china.code || china;
+                const chinaResult = await JsConfuser.obfuscate(code, getMandarinObfuscationConfig());
+                obfuscatedCode = chinaResult.code || chinaResult;
                 break;
+
             case 'encarab':
-                const arab = await JsConfuser.obfuscate(code, getArabObfuscationConfig());
-                obfuscatedCode = arab.code || arab;
+                const arabResult = await JsConfuser.obfuscate(code, getArabObfuscationConfig());
+                obfuscatedCode = arabResult.code || arabResult;
                 break;
+
             case 'encjapan':
-                const japan = await JsConfuser.obfuscate(code, getJapanObfuscationConfig());
-                obfuscatedCode = japan.code || japan;
+                const japanResult = await JsConfuser.obfuscate(code, getJapanObfuscationConfig());
+                obfuscatedCode = japanResult.code || japanResult;
                 break;
+
             case 'encjapxab':
-                const japxab = await JsConfuser.obfuscate(code, getJapanxArabObfuscationConfig());
-                obfuscatedCode = japxab.code || japxab;
+                const japxabResult = await JsConfuser.obfuscate(code, getJapanxArabObfuscationConfig());
+                obfuscatedCode = japxabResult.code || japxabResult;
                 break;
+
             case 'encinvis':
-                const invisConf = getInvisObfuscationConfig();
-                const invis = await JsConfuser.obfuscate(code, invisConf);
-                obfuscatedCode = invis.code || invis;
+                const invisResult = await JsConfuser.obfuscate(code, getInvisObfuscationConfig());
+                obfuscatedCode = invisResult.code || invisResult;
                 break;
+
+            // --- POWER PACKS ---
             case 'encnebula':
-                const neb = await JsConfuser.obfuscate(code, getNebulaObfuscationConfig());
-                obfuscatedCode = neb.code || neb;
+                const nebulaResult = await JsConfuser.obfuscate(code, getNebulaObfuscationConfig());
+                obfuscatedCode = nebulaResult.code || nebulaResult;
                 break;
+
             case 'encnova':
-                const nova = await JsConfuser.obfuscate(code, getNovaObfuscationConfig());
-                obfuscatedCode = nova.code || nova;
+                const novaResult = await JsConfuser.obfuscate(code, getNovaObfuscationConfig());
+                obfuscatedCode = novaResult.code || novaResult;
                 break;
+
             case 'encsiu':
-                const siu = await JsConfuser.obfuscate(code, getSiuCalcrickObfuscationConfig());
-                obfuscatedCode = siu.code || siu;
+                const siuResult = await JsConfuser.obfuscate(code, getSiuCalcrickObfuscationConfig());
+                obfuscatedCode = siuResult.code || siuResult;
                 break;
+
             case 'encx':
-                const xConf = getXObfuscationConfig();
-                const x = await JsConfuser.obfuscate(code, xConf);
-                const xCode = x.code || x;
+                const xResult = await JsConfuser.obfuscate(code, getXObfuscationConfig());
+                const xCode = xResult.code || xResult;
                 const encodedInvisible = encodeInvisible(xCode);
                 obfuscatedCode = `
                 (function(){
@@ -499,41 +805,67 @@ module.exports = async (req, res) => {
                 })();
                 `;
                 break;
+
             case 'encnew':
-                const newConf = getNewObfuscationConfig();
-                const newEnc = await JsConfuser.obfuscate(code, newConf);
-                obfuscatedCode = newEnc.code || newEnc;
+                const newResult = await JsConfuser.obfuscate(code, getNewObfuscationConfig());
+                obfuscatedCode = newResult.code || newResult;
                 break;
+
             case 'encstealth':
-                const stealth = await JsConfuser.obfuscate(code, getStealthObfuscationConfig());
-                obfuscatedCode = stealth.code || stealth;
+                const stealthResult = await JsConfuser.obfuscate(code, getStealthObfuscationConfig());
+                obfuscatedCode = stealthResult.code || stealthResult;
                 break;
+
             case 'encstrong':
-                const strong = await JsConfuser.obfuscate(code, getStrongObfuscationConfig());
-                obfuscatedCode = strong.code || strong;
+                const strongResult = await JsConfuser.obfuscate(code, getStrongObfuscationConfig());
+                obfuscatedCode = strongResult.code || strongResult;
                 break;
+
             case 'encultra':
-                const ultra = await JsConfuser.obfuscate(code, getUltraObfuscationConfig());
-                obfuscatedCode = ultra.code || ultra;
+                const ultraResult = await JsConfuser.obfuscate(code, getUltraObfuscationConfig());
+                obfuscatedCode = ultraResult.code || ultraResult;
                 break;
+
             case 'encquantum':
                 obfuscatedCode = await obfuscateQuantum(code);
                 break;
+
             case 'enclocked':
-                obfuscatedCode = await obfuscateTimeLocked(code, days || 7);
+                obfuscatedCode = await obfuscateTimeLocked(code, days);
                 break;
+
+            // --- DEFAULT FALLBACK ---
             default:
-                return res.status(400).json({ error: 'Invalid mode' });
+                const defaultResult = await JsConfuser.obfuscate(code, getObfuscationConfig('high'));
+                obfuscatedCode = defaultResult.code || defaultResult;
         }
 
-        // Ensure string
+        // Ensure string output
         if (typeof obfuscatedCode !== 'string') {
             obfuscatedCode = String(obfuscatedCode);
         }
 
-        return res.status(200).json({ obfuscatedCode });
+        // Return success response
+        return res.status(200).json({ 
+            success: true,
+            obfuscatedCode,
+            mode,
+            timestamp: new Date().toISOString()
+        });
+
     } catch (error) {
-        console.error('Encryption error:', error);
-        return res.status(500).json({ error: error.message || 'Internal server error' });
+        // Log error for debugging (Vercel will capture this)
+        console.error('Encryption error:', {
+            message: error.message,
+            stack: error.stack,
+            timestamp: new Date().toISOString()
+        });
+
+        // Return error response
+        return res.status(500).json({ 
+            success: false,
+            error: error.message || 'Internal server error',
+            mode: req.body?.mode || 'unknown'
+        });
     }
-};
+}
